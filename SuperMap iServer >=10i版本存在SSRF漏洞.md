@@ -20,7 +20,7 @@ http://support.supermap.com:8090/iserver/services/webprinting/rest/webprinting/v
 
 上述链接存在未授权访问。
 
-![img](file:////Users/cleanmgr/Library/Containers/com.kingsoft.wpsoffice.mac/Data/tmp/wps-cleanmgr/ksohtml//wps1.jpg) 
+![1](images/1.png) 
 
 1、点击”创建打印任务”按钮，输入payload，其中URL和picAsURL替换成攻击url即可。
 
@@ -118,12 +118,28 @@ curl 'http://support.supermap.com:8090/iserver/services/webprinting/rest/webprin
   --insecure
 ```
 
-![img](file:////Users/cleanmgr/Library/Containers/com.kingsoft.wpsoffice.mac/Data/tmp/wps-cleanmgr/ksohtml//wps2.jpg) 
+![2](images/2.png)
+
+
 
 3、在云主机启动80端口或者启用dnslog接口，然后点击创建打印服务，即可在云主机获取对应请求记录。
 
-![img](file:////Users/cleanmgr/Library/Containers/com.kingsoft.wpsoffice.mac/Data/tmp/wps-cleanmgr/ksohtml//wps3.jpg) 
+![3](images/3.png) 
 
 请求DNSlog平台
 
-![img](file:////Users/cleanmgr/Library/Containers/com.kingsoft.wpsoffice.mac/Data/tmp/wps-cleanmgr/ksohtml//wps4.jpg) 
+![4](/Users/cleanmgr/project/vuls/images/4.png) 
+
+## 四、加固建议
+
+1、禁止302跳转，或者没跳转一次都进行校验目的地址是否为内网地址或合法地址。
+
+2、过滤返回信息，验证远程服务器对请求的返回结果，是否合法。
+
+3、禁用高危协议，例如：gopher、dict、ftp、file等，只允许http/https
+
+4、设置URL白名单或者限制内网IP
+
+5、限制请求的端口为http的常用端口，或者根据业务需要治开放远程调用服务的端口
+
+6、catch错误信息，做统一错误信息，避免黑客通过错误信息判断端口对应的服务
