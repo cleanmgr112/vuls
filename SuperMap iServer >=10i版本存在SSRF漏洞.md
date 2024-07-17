@@ -128,7 +128,7 @@ curl 'http://support.supermap.com:8090/iserver/services/webprinting/rest/webprin
 
 请求DNSlog平台
 
-![4](/Users/cleanmgr/project/vuls/images/4.png) 
+![4](images/4.png) 
 
 ## 四、加固建议
 
